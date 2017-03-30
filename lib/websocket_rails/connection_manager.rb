@@ -79,6 +79,7 @@ module WebsocketRails
       raise InvalidConnectionError unless Connection.websocket?(request.env)
 
       connection = Connection.new(request, dispatcher)
+      @dispatcher.process_inbound
 
       register_user_connection connection
 
